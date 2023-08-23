@@ -1,0 +1,166 @@
+---
+id: gs-flashing
+title: Flashing Your Device
+tags: [getting started, flashing, prebuilt-target]
+---
+
+# Flashing Your Device
+
+:::note
+
+The initial FoundriesFactory® set up and build is finished very quick.
+Follow its status with steps listed in [Watching Your Build](./getting-started/signing-up/#watching-your-build).
+
+:::
+
+## Prerequisites and Pre-Work
+
+- A [supported board](./reference-manual/linux-supported) which is either:
+  - Capable of booting from eMMC, **supported by default if available**
+  - **Or** capable of booting from a suitable [microSD Card](https://elinux.org/RPi_SD_cards)
+- Wired or WiFi network with internet access.
+  - Ethernet cable (if choosing Wired)
+  - Console access to your hardware via UART serial (if choosing WiFi)
+
+## Downloading the LmP System Image
+
+After a successful build, FoundriesFactory produces build artifacts which can be downloaded from the `Targets` tab of your Factory.
+
+1. Navigate to the `Targets`section of your Factory.
+
+2. Click the Target with the `prebuilt-target` `Trigger`.
+   ![pre-built](/img/flash-device/pre-built.png)
+
+3. Expand the `Targets` tab clicking on it.
+   This shows a link to the Factory image artifact.
+   Download the Factory image for your machine, e.g: `lmp-base-console-image-<machine_name>.wic.gz`:
+   ![artifacts](/img/flash-device/artifacts.png)
+
+:::note
+
+Most platforms require more than the `lmp-factory-image-<machine_name>.wic.gz` artifact for flashing.
+The required artifacts are board specific and listed in respective pages under.
+Targets publish all needed files for each platform under `Runs`.
+
+:::
+
+## Flashing the Image
+
+The flashing procedure is board specific and we cover separate steps in
+`ref-boards`{.interpreted-text role="ref"}. Please refer to this section
+for specifics on flashing your system image using the vendor provided
+tools. See `ref-qemu`{.interpreted-text role="ref"} for booting Qemu
+images.
+
+:::note
+
+LmP enforces eMMC boot whenever possible as this is the path to enable
+all security features it provides. So for platforms with available eMMC,
+such as the NXP® i.MX EVKs, booting from eMMC rather than SD is highly
+recommended and enabled by default.
+
+:::
+
+## Booting and Connecting to the Network
+
+After flashing and booting the board with the respective steps for your
+hardware, follow these steps to connect to the network.
+
+:::note
+
+By default, the `username` and `password` to log in your device after
+boot are `fio`/`fio`. We recommend changing them once you are in
+development.
+
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="Ethernet (Recommended)" default>
+    Ethernet works out of the box if a DHCP server is available on the local network.
+    Connect an Ethernet cable to the board.
+    Your board will connect to the network via Ethernet soon after booting.
+  </TabItem>
+  <TabItem value="Wifi">
+    LmP uses `nmcli` and `NetworkManager` to manage network connectivity.
+    If you are starting without any network connectivity that would give you
+    shell access to your device (like SSH), you will need to **connect via UART serial** before setting up a WiFi connection.
+    You may need to refer to your hardware vendor's documentation on UART serial access.
+    We cover the steps to access UART serial for some platforms in `ref-boards`.
+    Once you have gained shell access to the device, log in with `fio`/`fio`
+    username and password. After logged, you can add a new WiFi SSID by
+    using `nmcli`:
+
+```bash
+sudo nmcli device wifi connect NETWORK_SSID password NETWORK_PASSWORD
+```
+
+  </TabItem>
+</Tabs>
+
+### Logging in via SSH
+
+To login via SSH, run:
+
+```bash
+ssh fio@<machine-name>.local
+```
+
+Where `fio` is the username and `<machine-name>` is the hostname of your
+device. The default password is `fio`.
+
+By default, your device hostname is set to a unique string that specify
+the platform chosen during Factory creation (`machine`). Check
+`ref-linux-supported`{.interpreted-text role="ref"} for a list of
+supported platform and their `machine` values.
+
+::: tip
+
+Here are some examples of default hostnames:
+
+| `raspberrypi4-64.local`
+| `intel-corei7-64.local`
+| `imx8mm-lpddr4-evk.local`
+:::
+
+::: note
+
+For this to work, your PC needs to support
+[zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking).
+The hostname must be unclaimed.
+
+If this does not work, see
+`Troubleshooting <gs-troubleshooting>`{.interpreted-text role="ref"}
+below for advice.
+:::
+
+#### Troubleshooting
+
+If the above methods to SSH into your board do not work, there are
+additional things to try.
+
+1. Get the IP address of your device:
+
+    - Temporarily enable and connect to the UART serial (detailed steps for some platforms can be found in `ref-board`
+      and determine available IP addresses with:
+    - Ethernet:
+
+        ```bash
+        ip addr show eth0 scope global
+        ```
+
+    - WiFi:
+
+        ```bash
+        ip addr show wlan0 scope global
+        ```
+
+    - **Or** list the connected devices and their local IP addresses on your network router's administrative interface.
+
+2. Connect to the device by IP address:
+
+    ```bash
+    ssh fio@<ip-address>
+    ```

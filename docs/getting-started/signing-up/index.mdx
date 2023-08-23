@@ -1,0 +1,103 @@
+---
+slug: /
+id: signing-up
+title: Signing Up
+sidebar_position: 1
+tags: [signup, start, first steps]
+---
+
+# Getting Started
+
+import version from "@site/static/versions.json"
+
+<span> Yocto Version: {version.yocto}</span>
+
+## Signing Up
+
+To begin using FoundriesFactory®, start with [creating an account](https://app.foundries.io/signup) with us.
+
+<figure>
+<img src="./img/signup/signup.png" class="align-center" width="35%" height="600"
+  alt="signup screen" />
+<figcaption>This is the beginning of your journey.</figcaption>
+</figure>
+
+## Creating Your Factory
+
+[FoundriesFactory](./reference-manual/factory) is the start of your
+embedded OS, tailored specifically for your product.
+When you create a Factory, we immediately bootstrap the CI build process. This generates
+an unmodified [Linux microPlatform](./reference-manual/linux) OS Image, which
+is from this point onward, **owned by you**.
+
+When your account is created, it is not associated with any factories.
+Create one by clicking `Create Factory`.
+
+<figure>
+<img src="./img/signup/no-factories.png" class="align-center"
+width="630" alt="/_static/signup/no-factories.png" />
+<figcaption>Your journey begins empty handed</figcaption>
+</figure>
+
+## Selecting Your Platform
+
+Choose a hardware platform from the dropdown menu in the **Create
+Factory** wizard and continue. Click `Create Factory`once your details are entered.
+
+:::warning
+
+Once a Factory is created, the chosen platform/machine and Factory name
+cannot be changed. Create a new Factory or [contact
+support](https://foundriesio.atlassian.net/servicedesk/customer/portals)
+if a mistake is made.
+
+:::
+
+The [Linux MicroPlatform](./reference-manual/linux) supports a wide range of
+platforms out of the box. This includes [QEMU](https://www.qemu.org/)
+images for [ARM](https://www.arm.com/) and [RISC-V](https://riscv.org/)
+architectures.
+
+<figure>
+<img src="./img/signup/create.png" class="align-center" width="630"
+alt="create factory" />
+<figcaption>Create Factory</figcaption>
+</figure>
+
+:::tip
+
+Your chosen platform determines the value for the `machines:` key for
+your builds.
+
+:::
+
+## Watching Your Build
+
+Once you have created your Factory, the initial artifacts from the
+Foundries.io™ Linux® microPlatform (LmP) will be generated. This is the
+base to build your product. You can monitor the progress in the
+`Targets` tab of your Factory.
+Additionally, you will receive an email once the Factory initial setup
+is complete.
+
+<figure>
+<img src="./img/signup/build.png" class="align-center" width="630"
+alt="watching build in browser" />
+<figcaption>FoundriesFactory Targets</figcaption>
+</figure>
+
+Targets are a reference to a platform image and Docker applications.
+When developers push code, FoundriesFactory produces a new target.
+Registered devices then update and install Targets.
+
+:::note
+
+If you would like to learn more, we wrote a
+[blog](https://foundries.io/insights/blog/whats-a-target/) about what
+Targets are and why we made them the way they are.
+
+:::
+
+The `Targets` tab of the Factory will
+become more useful as you begin to build your application and produce
+new Targets for the Factory to build.
