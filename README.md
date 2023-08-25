@@ -142,4 +142,5 @@ CURRENT_BRANCH=<branchName> \ # will usually be main, after a merge
 USE_SSH=true \
 npm run deploy
 ```
+GitHub actions were added for (1) testing PRs, and (2) deploying after merges to main.
 
