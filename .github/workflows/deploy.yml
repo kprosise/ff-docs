@@ -33,5 +33,5 @@ jobs:
           # Build output to publish to the `gh-pages` branch:
           publish_dir: ./build
           # The following lines assign commit authorship
-          user_name: kprosise
-          user_email: katrina.prosise@foundries.io
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
