@@ -123,7 +123,7 @@ const config = {
           {
            type: 'docsVersionDropdown',
            position: 'left',
-           dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
+            dropdownItemsAfter: [{href: 'https://docs.foundries.io', label: 'All versions'}],
            dropdownActiveClassDisabled: true,
           },
           {
