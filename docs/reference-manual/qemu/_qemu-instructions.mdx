@@ -1,0 +1,30 @@
+# Booting in QEMU
+
+:::info
+
+If you are using a prebuilt Target. your artifacts begin with ``lmp-base-console-image`` instead.
+
+:::
+
+<p> For {props.arch}: </p>
+
+
+<code>
+     └── | {props.arch} {'\n'}
+         ├── lmp-factory-image-{props.machine}.wic.gz {'\n'}
+         ├── other {'\n'}
+         │   └── lmp-factory-image-{props.machine}.wic.qcow2 # optional {'\n'}
+         └──{props.firmwareBlob}{'\n'}
+</code>
+
+## QEMU CLI
+
+<code>
+    {props.qemuCli}
+</code>
+
+:::tip
+
+You can register your device by following the steps from the [Getting Started Guide](getting/started/register-device/index.mdx).
+
+:::
