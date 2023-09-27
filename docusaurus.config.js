@@ -102,6 +102,11 @@ const config = {
 
           },
           {
+           label: 'Offline Documentation',
+           position: 'right',
+           to: '/offline-documentation/offline-documentation',
+          },
+          {
            type: 'dropdown',
            label: 'Trainings',
            position: 'left',
