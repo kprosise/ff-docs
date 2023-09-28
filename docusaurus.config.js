@@ -31,7 +31,7 @@ const config = {
     [
       require.resolve("@cmfcmf/docusaurus-search-local"),
       {
-        indexBlog: false,
+        indexBlog: true,
       },
     ],
     //[
@@ -67,8 +67,10 @@ const config = {
           includeCurrentVersion: true,
           lastVersion: 'current',
         },
-        //  Docs focused site. we can still have a blog here, it just won't be the focus.
-        blog: false,
+        blog: {
+          blogTitle: 'Foundries.io Blog',
+          blogDescription: 'Foundries.io Blog on all things FoundriesFactory, embedded development, OTA Updates, and IoT Security',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -102,6 +104,11 @@ const config = {
 
           },
           {
+            to: 'blog',
+            label: 'Blog',
+            position: 'left',
+          },
+          {
            label: 'Offline Documentation',
            position: 'right',
            to: '/offline-documentation/offline-documentation',
@@ -127,7 +134,7 @@ const config = {
           },
           {
            type: 'docsVersionDropdown',
-           position: 'left',
+           position: 'right',
             dropdownItemsAfter: [{href: 'https://docs.foundries.io', label: 'All versions'}],
            dropdownActiveClassDisabled: true,
           },
