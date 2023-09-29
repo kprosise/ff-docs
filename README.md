@@ -11,64 +11,70 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 The items below represent what we are evaluating on, and what needs to be demonstrated.
 A separate document will present the findings.
 
-[ ] Scalability; Can it grow with increasing contributors and information and remain manageable?
+::: note
+
+* "x": True
+* "-": With notes or exceptions
+* empty: False or undetermined 
+
+[-] Scalability; Can it grow with increasing contributors and information and remain manageable?
      Conversely, can it be managed and remain simple enough for a team of one?
 
-[ ] Flexibility
+[x] Flexibility
 
- [ ] able to meet changing needs
+ [x] able to meet changing needs
 
- [ ] reduce effort through reuse
+ [x] reduce effort through reuse
 
- [ ] Single source
+ [-] Single source
 
-[ ] Can be coupled with partner documentation
+[x] Can be coupled with partner documentation
 
-  [ ] security...oauth
+  [-] security...oauth
 
-  [ ] ease of cloning and modification
+  [x] ease of cloning and modification
 
-[ ] Minimal prerequisites for contribution
+[x] Minimal prerequisites for contribution
 
-  [ ] familiar markup language or plain-text
+  [x] familiar markup language or plain-text
 
-  [ ] Readable prior to rendering
+  [-] Readable prior to rendering
 
-  [ ] Easy to render and check locally prior to pull request
+  [x] Easy to render and check locally prior to pull request
 
-[ ] Good Findability
+[x] Good Findability
 
-  [ ] organized content
+  [x] organized content
 
-  [ ] metrics/reports
+  [x] metrics/reports
 
-  [ ] quick and responsive
+  [x] quick and responsive
 
-  [ ] filtered/ordered
+  [x] filtered/ordered
 
-  [ ] optimized for search engines
+  [x] optimized for search engines
 
 Support for:
 
-[ ] Importing older documentation versions
+[-] Importing older documentation versions
 
-[ ] PDF export
+[x] PDF export
 
-[ ] Versioning
+[x] Versioning
 
-[ ] Documenting APIs
+[x] Documenting APIs
 
-[ ] Permalinks
+[x] Permalinks
 
-[ ] Minification
+[x] Minification
 
-[ ] SEO tools
+[x] SEO tools
 
-[ ] calculating and displaying read time
+[x] calculating and displaying read time
 
-[ ] Stable and Supported! We need something that is tried and tested, and will likely be around for awhile
+[x] Stable and Supported…tried and tested,likely to be around for awhile
 
-[ ] Open Source
+[x] Open Source
 
 ## Usage
 
@@ -94,7 +100,7 @@ When you run `npm run start` from a console, a local server starts and opens up 
 When you make changes, they will generally be reflected live.
 Any Error messages will be displayed within the browser as well as the console.
 
-To see how the site will look when deployed however, you must build it first, generating the html for the
+To see exactly how the site will look when deployed however, you must build it first, generating the html for the
 static site.
 
 Configuration is done in `docusaurus.config.js`. See comments in file for details.
