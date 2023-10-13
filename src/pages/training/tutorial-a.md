@@ -6,9 +6,7 @@
 To create your training Factory, first create an account with us:
 
 Access the page [https://app.foundries.io/](https://app.foundries.io/).
-
 Complete with name, email and password to continue with your GitHub or Google account.
-
 Once you have signed up, you will need to verify your email address.
 
 ## Verify Your Email
