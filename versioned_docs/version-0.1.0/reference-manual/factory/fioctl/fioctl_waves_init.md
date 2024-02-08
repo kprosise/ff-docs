@@ -7,16 +7,16 @@ Create a new wave from targets of a given version
 Create a new wave from targets of a given version.
 
 This command only initializes a wave, but does not provision its updates
-to devices. Use a "fioctl wave rollout `<wave>`{=html} `<group>`{=html}"
+to devices. Use a "fioctl wave rollout `<wave>` `<group>`"
 to trigger updates of this wave to a device group. Use a "fioctl wave
-complete `<wave>`{=html}" to update all devices (make it globally
-available). Use a "fioctl wave cancel `<wave>`{=html} to cancel a wave
+complete `<wave>`" to update all devices (make it globally
+available). Use a "fioctl wave cancel `<wave>` to cancel a wave
 (make it no longer available).
 
+```
     fioctl waves init <wave> <version> <tag> [flags]
-
+```
 ### Examples
-
 
     Start a new wave for the target version 4 and the 'production' device tag:
     $ fioctl wave init -k ~/path/to/keys/targets.only.key.tgz wave-name 4 production
@@ -26,6 +26,7 @@ available). Use a "fioctl wave cancel `<wave>`{=html} to cancel a wave
 
 ### Options
 
+```
       -d, --dry-run             Don't create a wave, print it to standard output.
       -E, --expires-at string   Role expiration date and time in RFC 3339 format.
                                 The same expiration will be used for production targets when a wave is complete.
@@ -38,6 +39,7 @@ available). Use a "fioctl wave cancel `<wave>`{=html} to cancel a wave
           --prune strings       Prune old unused Target(s) from the production metadata.
                                 Example: 1,2,3
           --source-tag string   Match this tag when looking for target versions. Certain advanced tagging configurations may require this argument.
+```
 
 ### Options inherited from parent commands
 

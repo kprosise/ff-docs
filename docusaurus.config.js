@@ -1,9 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
+import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'FoundriesFactory',
@@ -27,25 +25,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
 
   staticDirectories: ['static',],
-  plugins: [
-    [
-      require.resolve("@cmfcmf/docusaurus-search-local"),
-      {
-        indexBlog: true,
-      },
-    ],
-    //[
-    //  '@docusaurus/plugin-ideal-image',
-    //  {
-    //    quality: 70,
-    //    max: 300, // max resized image's size.
-    //    min: 100, // min resized image's size. if original is lower, use that size.
-    //    steps: 4, // the max number of images generated between min and max (inclusive)
-    //    disableInDev: false,
-    //  },
-    //],
-  ],
-
+  
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -60,7 +40,7 @@ const config = {
       ({
         docs: {
           routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.js',
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/foundriesio/ff-docs',
@@ -72,7 +52,7 @@ const config = {
           blogDescription: 'Foundries.io Blog on all things FoundriesFactory, embedded development, OTA Updates, and IoT Security',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
         },
       }),
     ],
@@ -183,16 +163,16 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Foundries.io, Inc. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ['bash','git','json'],
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
+        additionalLanguages: ['bash','git','json','diff'],
       },
-     announcementBar: {
-     id: 'cowBoy',
-     content:
-       ' Yee-haw! 🤠 🐮',
-     backgroundColor: '#f7f2cd',
-     },
+      announcementBar: {
+      id: 'cowBoy',
+      content:
+        ' Yee-haw! 🤠 🐮',
+      backgroundColor: '#f7f2cd',
+      },
  
     }),
 };

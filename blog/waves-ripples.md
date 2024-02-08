@@ -145,12 +145,6 @@ External references:
 
 [Fioctl]: https://github.com/foundriesio/fioctl
 
-[blog:device-groups]: {% ref 'device-groups.md' %}
-
-[blog:waves-intro]: {% ref 'waves-intro.md' %}
-
-[blog:waves-security]: {% ref 'waves-security.md' %}
-
 [manual:ota]: https://docs.foundries.io/latest/reference-manual/ota/ota.html
 
 [manual:production-targets]: https://docs.foundries.io/latest/reference-manual/ota/production-targets.html
